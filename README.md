@@ -151,9 +151,9 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 
 ## 👥 İletişim
 
-Proje Sahibi - [@yourusername](https://github.com/yourusername)
+Proje Sahibi - [@mehmetalitilgen](https://github.com/yourusername)
 
-Proje Linki: [https://github.com/yourusername/smart-sensor-tracking-system](https://github.com/yourusername/smart-sensor-tracking-system)
+Proje Linki: [https://github.com/mehmetalitilgen/smart-sensor-tracking-system](https://github.com/yourusername/smart-sensor-tracking-system)
 
 ## 🐳 Docker ile Kurulum
 
