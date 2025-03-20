@@ -56,7 +56,7 @@ Bu proje, IoT sensörlerinden gelen verileri gerçek zamanlı olarak toplayan, a
 
 1. Repoyu klonlayın:
 ```bash
-git clone https://github.com/yourusername/smart-sensor-tracking-system.git
+git clone https://github.com/mehmetalitilgen/smart-sensor-tracking-system.git
 cd smart-sensor-tracking-system
 ```
 
