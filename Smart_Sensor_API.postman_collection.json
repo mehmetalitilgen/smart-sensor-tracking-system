@@ -1,7 +1,7 @@
 {
   "info": {
-    "name": "Smart Sensor API",
-    "description": "Akıllı Sensör Takip Sistemi API Collection",
+    "name": "Smart Sensor API - Corrected",
+    "description": "Do\u011fru ayarlanm\u0131\u015f Smart Sensor Tracking System API Collection",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -20,12 +20,17 @@
             ],
             "url": {
               "raw": "{{base_url}}/auth/register",
-              "host": ["{{base_url}}"],
-              "path": ["auth", "register"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\",\n    \"name\": \"Test User\",\n    \"role\": \"USER\",\n    \"companyId\": 1\n}"
+              "raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\",\n    \"name\": \"Test User\",\n    \"role\": \"SYSTEM_ADMIN\"\n }"
             }
           }
         },
@@ -41,107 +46,47 @@
             ],
             "url": {
               "raw": "{{base_url}}/auth/login",
-              "host": ["{{base_url}}"],
-              "path": ["auth", "login"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
             },
             "body": {
               "mode": "raw",
               "raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
             }
           }
-        }
-      ]
-    },
-    {
-      "name": "Sensor Data",
-      "item": [
-        {
-          "name": "Get All Sensor Data",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/sensor-data",
-              "host": ["{{base_url}}"],
-              "path": ["sensor-data"]
-            }
-          }
         },
         {
-          "name": "Get Sensor Data by ID",
+          "name": "Create User",
           "request": {
-            "method": "GET",
+            "method": "POST",
             "header": [
               {
                 "key": "Authorization",
                 "value": "Bearer {{token}}"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/sensor-data/1",
-              "host": ["{{base_url}}"],
-              "path": ["sensor-data", "1"]
-            }
-          }
-        },
-        {
-          "name": "Get Sensor Data by Device ID",
-          "request": {
-            "method": "GET",
-            "header": [
+              },
               {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
+                "key": "Content-Type",
+                "value": "application/json"
               }
             ],
             "url": {
-              "raw": "{{base_url}}/sensor-data/device/temp_sensor_01",
-              "host": ["{{base_url}}"],
-              "path": ["sensor-data", "device", "temp_sensor_01"]
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Log Analytics",
-      "item": [
-        {
-          "name": "Get All Logs",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/log-view",
-              "host": ["{{base_url}}"],
-              "path": ["log-view"]
-            }
-          }
-        },
-        {
-          "name": "Get Logs by User ID",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/log-view/user/1",
-              "host": ["{{base_url}}"],
-              "path": ["log-view", "user", "1"]
+              "raw": "{{base_url}}/auth/create-user",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "create-user"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"newuser@example.com\",\n    \"password\": \"password123\",\n    \"name\": \"New User\",\n    \"role\": \"USER\",\n    \"companyId\": 1\n}"
             }
           }
         }
@@ -162,8 +107,12 @@
             ],
             "url": {
               "raw": "{{base_url}}/company",
-              "host": ["{{base_url}}"],
-              "path": ["company"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "company"
+              ]
             }
           }
         },
@@ -183,37 +132,16 @@
             ],
             "url": {
               "raw": "{{base_url}}/company",
-              "host": ["{{base_url}}"],
-              "path": ["company"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "company"
+              ]
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"Test Company\",\n    \"address\": \"Test Address\",\n    \"phone\": \"1234567890\",\n    \"email\": \"company@example.com\"\n}"
-            }
-          }
-        },
-        {
-          "name": "Update Company",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/company/1",
-              "host": ["{{base_url}}"],
-              "path": ["company", "1"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"name\": \"Updated Company\",\n    \"address\": \"Updated Address\",\n    \"phone\": \"0987654321\",\n    \"email\": \"updated@example.com\"\n}"
+              "raw": "{\n    \"name\": \"Test Company\"\n}"
             }
           }
         },
@@ -229,18 +157,23 @@
             ],
             "url": {
               "raw": "{{base_url}}/company/1",
-              "host": ["{{base_url}}"],
-              "path": ["company", "1"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "company",
+                "1"
+              ]
             }
           }
         }
       ]
     },
     {
-      "name": "User Management",
+      "name": "Sensor Data",
       "item": [
         {
-          "name": "Get All Users",
+          "name": "Get All Sensor Data",
           "request": {
             "method": "GET",
             "header": [
@@ -250,66 +183,25 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/users",
-              "host": ["{{base_url}}"],
-              "path": ["users"]
+              "raw": "{{base_url}}/sensor-data",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sensor-data"
+              ]
             }
           }
-        },
+        }
+      ]
+    },
+    {
+      "name": "LogView",
+      "item": [
         {
-          "name": "Create User",
+          "name": "Get All Logs",
           "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/users",
-              "host": ["{{base_url}}"],
-              "path": ["users"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"email\": \"newuser@example.com\",\n    \"password\": \"password123\",\n    \"name\": \"New User\",\n    \"role\": \"USER\",\n    \"companyId\": 1\n}"
-            }
-          }
-        },
-        {
-          "name": "Update User",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/users/1",
-              "host": ["{{base_url}}"],
-              "path": ["users", "1"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"name\": \"Updated User\",\n    \"role\": \"ADMIN\",\n    \"companyId\": 1\n}"
-            }
-          }
-        },
-        {
-          "name": "Delete User",
-          "request": {
-            "method": "DELETE",
+            "method": "GET",
             "header": [
               {
                 "key": "Authorization",
@@ -317,9 +209,13 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/users/1",
-              "host": ["{{base_url}}"],
-              "path": ["users", "1"]
+              "raw": "{{base_url}}/log-view",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "log-view"
+              ]
             }
           }
         }
@@ -338,4 +234,4 @@
       "type": "string"
     }
   ]
-} 
+}
